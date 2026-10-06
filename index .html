@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cổng Thông Tin Điện Tử Xóm Quyết Thắng - Xã Phú Lạc, Thái Nguyên</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#166534',
+                        primaryDark: '#14532d',
+                        accent: '#ca8a04'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- HEADER / NAVBAR -->
+    <header class="bg-white shadow sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-primary text-white p-2.5 rounded-xl text-xl font-bold">
+                    <i class="fa-solid fa-landmark"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg text-gray-900 display-xom-name">Xóm Quyết Thắng</h1>
+                    <p class="text-xs text-gray-500">Xã Phú Lạc, Huyện Đại Từ, Tỉnh Thái Nguyên</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-gray-600">
+                <a href="#home" class="hover:text-primary transition">Trang chủ</a>
+                <a href="#about" class="hover:text-primary transition">Giới thiệu sáp nhập</a>
+                <a href="#news" class="hover:text-primary transition">Tin tức & Thông báo</a>
+                <a href="#households" class="hover:text-primary transition">Danh sách hộ khẩu</a>
+                <a href="#finance" class="hover:text-primary transition">Công khai thu chi</a>
+            </nav>
+            <div>
+                <button onclick="openAdminLoginModal()" class="bg-primary hover:bg-primaryDark text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow flex items-center">
+                    <i class="fa-solid fa-user-shield mr-2"></i> Quản Trị (Admin)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+
+        <!-- HERO SECTION -->
+        <section id="home" class="bg-gradient-to-r from-primary to-primaryDark text-white rounded-3xl p-8 md:p-12 shadow-xl flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="space-y-4 max-w-2xl">
+                <span class="bg-accent text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Chính thức hoạt động từ 01/07/2026</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight display-xom-name">Xóm Quyết Thắng</h2>
+                <p class="text-emerald-100 text-sm md:text-base leading-relaxed display-xom-desc">
+                    Thành lập kết hợp từ 3 xóm cũ: Xóm Đại Hà, Xóm Lũng 1 và Xóm Lũng 2. Xây dựng cộng đồng đoàn kết, phát triển và văn minh.
+                </p>
+                <div class="pt-2 flex flex-wrap gap-4 text-sm font-semibold">
+                    <div class="bg-white/10 px-4 py-2 rounded-xl backdrop-blur-sm">
+                        <i class="fa-solid fa-users mr-2 text-accent"></i> Nhân khẩu: <span class="display-xom-pop font-bold">1376</span>
+                    </div>
+                    <div class="bg-white/10 px-4 py-2 rounded-xl backdrop-blur-sm">
+                        <i class="fa-solid fa-house-chimney mr-2 text-accent"></i> Số hộ dân: <span class="display-xom-hh font-bold">337</span>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 text-center w-full md:w-80">
+                <i class="fa-solid fa-calendar-days text-4xl text-accent mb-2"></i>
+                <h4 class="text-sm font-semibold uppercase tracking-wider text-emerald-100">Ngày thành lập</h4>
+                <p class="text-2xl font-bold mt-1 display-xom-date">01/07/2026</p>
+            </div>
+        </section>
+
+        <!-- TIN TỨC & THÔNG BÁO -->
+        <section id="news" class="space-y-6">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="text-2xl font-bold text-gray-800 flex items-center">
+                    <i class="fa-solid fa-bullhorn text-primary mr-3"></i> Tin Tức & Hoạt Động Xóm
+                </h3>
+            </div>
+            <div id="news-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Render bằng JavaScript -->
+            </div>
+        </section>
+
+        <!-- DANH SÁCH HỘ KHẨU -->
+        <section id="households" class="bg-white rounded-2xl shadow p-6 space-y-6 border border-gray-100">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b pb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 flex items-center">
+                        <i class="fa-solid fa-address-book text-primary mr-2"></i> Danh Sách Hộ Khẩu (337 Hộ)
+                    </h3>
+                    <p class="text-xs text-gray-500 mt-1">Tổng hợp dữ liệu dân cư từ 3 xóm cũ.</p>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-50 border-b text-xs uppercase text-gray-600 font-semibold">
+                            <th class="p-3">STT</th>
+                            <th class="p-3">Chủ Hộ</th>
+                            <th class="p-3">Nhân Khẩu</th>
+                            <th class="p-3">Khu Vực (Xóm Cũ)</th>
+                            <th class="p-3">Điện Thoại</th>
+                            <th class="p-3 text-center">Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="household-table" class="text-sm divide-y">
+                        <!-- Render bằng JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- CÔNG KHAI THU CHI TÀI CHÍNH -->
+        <section id="finance" class="bg-white rounded-2xl shadow p-6 space-y-6 border border-gray-100">
+            <div class="border-b pb-4">
+                <h3 class="text-xl font-bold text-gray-800 flex items-center">
+                    <i class="fa-solid fa-wallet text-primary mr-2"></i> Công Khai Tài Chính & Thu Chi Xóm
+                </h3>
+                <p class="text-xs text-gray-500 mt-1">Minh bạch các khoản đóng góp quỹ xây dựng và chi tiêu định kỳ.</p>
+            </div>
+            <!-- Thống kê tổng quan -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs font-semibold text-emerald-600 uppercase">Tổng Thu Quỹ</p>
+                        <h4 id="pub-total-income" class="text-xl font-bold text-emerald-700 mt-1">0 VNĐ</h4>
+                    </div>
+                    <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                </div>
+                <div class="bg-rose-50 border border-rose-200 rounded-xl p-4 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs font-semibold text-rose-600 uppercase">Tổng Chi Quỹ</p>
+                        <h4 id="pub-total-expense" class="text-xl font-bold text-rose-700 mt-1">0 VNĐ</h4>
+                    </div>
+                    <div class="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center text-rose-600">
+                        <i class="fa-solid fa-arrow-trend-down"></i>
+                    </div>
+                </div>
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs font-semibold text-blue-600 uppercase">Số Dư Quỹ Hiện Tại</p>
+                        <h4 id="pub-balance" class="text-xl font-bold text-blue-700 mt-1">0 VNĐ</h4>
+                    </div>
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+                        <i class="fa-solid fa-vault"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Bảng công khai thu chi -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-50 border-b text-xs uppercase text-gray-600 font-semibold">
+                            <th class="p-3">Ngày</th>
+                            <th class="p-3">Nội dung giao dịch</th>
+                            <th class="p-3">Loại</th>
+                            <th class="p-3">Số tiền</th>
+                            <th class="p-3">Người nộp / Nhận</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pub-finance-table" class="text-sm divide-y">
+                        <!-- Render bằng JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ADMIN LOGIN MODAL -->
+    <div id="modal-admin-login" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-sm w-full p-6 shadow-2xl">
+            <h3 class="text-xl font-bold text-gray-800 mb-4"><i class="fa-solid fa-lock mr-2 text-primary"></i> Đăng Nhập Quản Trị</h3>
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Mật khẩu quản trị</label>
+                    <input type="password" id="admin-pass" required placeholder="Mặc định: 123456" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:outline-none">
+                </div>
+                <div class="flex justify-end space-x-2 pt-2">
+                    <button type="button" onclick="closeAdminLoginModal()" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-semibold">Hủy</button>
+                    <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-semibold">Đăng nhập</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN DASHBOARD PANEL (ẨN KHI CHƯA ĐĂNG NHẬP) -->
+    <div id="admin-dashboard" class="hidden fixed inset-0 bg-gray-100 z-50 overflow-y-auto">
+        <div class="bg-primary text-white py-4 px-6 flex justify-between items-center shadow-lg">
+            <h2 class="text-xl font-bold"><i class="fa-solid fa-gauge mr-2"></i> BẢNG ĐIỀU KHIỂN QUẢN TRỊ - XÓM QUYẾT THẮNG</h2>
+            <button onclick="logoutAdmin()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
+                <i class="fa-solid fa-right-from-bracket mr-1"></i> Thoát Quản Trị
+            </button>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+            
+            <!-- 1. CHỈNH SỬA THÔNG TIN CHUNG -->
+            <div class="bg-white rounded-xl shadow p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2"><i class="fa-solid fa-pen-to-square mr-2 text-primary"></i> 1. Chỉnh Sửa Thông Tin Chung</h3>
+                <form onsubmit="saveGeneralInfo(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Tên đơn vị</label>
+                            <input type="text" id="gen-name" class="w-full border rounded-lg px-3 py-2 text-sm" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Ngày hoạt động</label>
+                            <input type="text" id="gen-date" class="w-full border rounded-lg px-3 py-2 text-sm" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Tổng nhân khẩu</label>
+                            <input type="number" id="gen-population" class="w-full border rounded-lg px-3 py-2 text-sm" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Tổng số hộ dân</label>
+                            <input type="number" id="gen-households" class="w-full border rounded-lg px-3 py-2 text-sm" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Mô tả cấu thành sáp nhập</label>
+                        <input type="text" id="gen-desc" class="w-full border rounded-lg px-3 py-2 text-sm" required>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="submit" class="px-5 py-2 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-primaryDark transition">Lưu Thay Đổi Thông Tin</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 2. QUẢN LÝ TIN TỨC & UPLOAD ẢNH -->
+            <div class="bg-white rounded-xl shadow p-6">
+                <div class="flex justify-between items-center mb-4 border-b pb-2">
+                    <h3 class="text-xl font-bold text-gray-800"><i class="fa-solid fa-bullhorn mr-2 text-primary"></i> 2. Quản Lý Tin Tức & Hình Ảnh</h3>
+                    <button onclick="openAddNewsModal()" class="bg-primary text-white px-3 py-1.5 rounded-lg text-sm font-semibold hover:bg-primaryDark">
+                        <i class="fa-solid fa-plus mr-1"></i> Đăng Bài Viết Mới
+                    </button>
+                </div>
+                <div id="admin-news-container" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+            </div>
+
+            <!-- 3. QUẢN LÝ HỘ KHẨU -->
+            <div class="bg-white rounded-xl shadow p-6">
+                <div class="flex justify-between items-center mb-4 border-b pb-2">
+                    <h3 class="text-xl font-bold text-gray-800"><i class="fa-solid fa-address-book mr-2 text-primary"></i> 3. Quản Lý Hộ Khẩu</h3>
+                    <button onclick="openAddHouseholdModal()" class="bg-primary text-white px-3 py-1.5 rounded-lg text-sm font-semibold hover:bg-primaryDark">
+                        <i class="fa-solid fa-plus mr-1"></i> Thêm Hộ Khẩu Mới
+                    </button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 border-b text-xs uppercase text-gray-600 font-semibold">
+                                <th class="p-3">STT</th>
+                                <th class="p-3">Chủ Hộ</th>
+                                <th class="p-3">Nhân Khẩu</th>
+                                <th class="p-3">Xóm Cũ</th>
+                                <th class="p-3">SĐT</th>
+                                <th class="p-3 text-center">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-household-table" class="text-sm divide-y"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 4. QUẢN LÝ THU CHI TÀI CHÍNH -->
+            <div class="bg-white rounded-xl shadow p-6">
+                <div class="flex justify-between items-center mb-4 border-b pb-2">
+                    <h3 class="text-xl font-bold text-gray-800"><i class="fa-solid fa-wallet mr-2 text-primary"></i> 4. Quản Lý Thu Chi Quỹ Xóm</h3>
+                    <button onclick="openAddFinanceModal()" class="bg-primary text-white px-3 py-1.5 rounded-lg text-sm font-semibold hover:bg-primaryDark">
+                        <i class="fa-solid fa-plus mr-1"></i> Thêm Giao Dịch Mới
+                    </button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 border-b text-xs uppercase text-gray-600 font-semibold">
+                                <th class="p-3">Ngày</th>
+                                <th class="p-3">Nội dung</th>
+                                <th class="p-3">Loại</th>
+                                <th class="p-3">Số tiền</th>
+                                <th class="p-3">Người nộp/nhận</th>
+                                <th class="p-3 text-center">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-finance-table" class="text-sm divide-y"></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MODAL THÊM / SỬA HỘ KHẨU -->
+    <div id="modal-ho-khau" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-lg w-full p-6 shadow-2xl">
+            <h3 id="modal-hk-title" class="text-xl font-bold text-gray-800 mb-4">Thêm / Sửa Hộ Khẩu</h3>
+            <form onsubmit="saveHousehold(event)" class="space-y-4">
+                <input type="hidden" id="hk-index" value="-1">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Họ và tên chủ hộ</label>
+                    <input type="text" id="hk-chuho" required class="w-full border rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Số nhân khẩu</label>
+                        <input type="number" id="hk-nhankhau" required min="1" class="w-full border rounded-lg px-3 py-2 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Xóm cũ</label>
+                        <select id="hk-xomcu" class="w-full border rounded-lg px-3 py-2 text-sm">
+                            <option value="Xóm Lũng 1">Xóm Lũng 1</option>
+                            <option value="Xóm Lũng 2">Xóm Lũng 2</option>
+                            <option value="Xóm Đại Hà">Xóm Đại Hà</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Số điện thoại</label>
+                    <input type="text" id="hk-sdt" required class="w-full border rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div class="flex justify-end space-x-2 pt-2 border-t">
+                    <button type="button" onclick="closeHKModal()" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-semibold">Hủy</button>
+                    <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-semibold">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL THÊM / SỬA TIN TỨC (CÓ UPLOAD ẢNH) -->
+    <div id="modal-tin-tuc" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-lg w-full p-6 shadow-2xl">
+            <h3 id="modal-tt-title" class="text-xl font-bold text-gray-800 mb-4">Đăng / Sửa Tin Tức</h3>
+            <form onsubmit="saveNews(event)" class="space-y-4">
+                <input type="hidden" id="tt-index" value="-1">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Tiêu đề bài viết</label>
+                    <input type="text" id="tt-title" required class="w-full border rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Nội dung tóm tắt</label>
+                    <textarea id="tt-desc" rows="3" required class="w-full border rounded-lg px-3 py-2 text-sm"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Tải lên hình ảnh minh họa từ thiết bị</label>
+                    <input type="file" id="tt-image-file" accept="image/*" class="w-full border rounded-lg px-3 py-2 text-sm bg-gray-50">
+                    <p class="text-xs text-gray-500 mt-1">Chọn file ảnh (JPG, PNG). Nếu bỏ qua sẽ giữ nguyên ảnh cũ hoặc ảnh mặc định.</p>
+                </div>
+                <div class="flex justify-end space-x-2 pt-2 border-t">
+                    <button type="button" onclick="closeNewsModal()" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-semibold">Hủy</button>
+                    <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-semibold">Lưu Tin</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL THÊM / SỬA THU CHI -->
+    <div id="modal-finance" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-lg w-full p-6 shadow-2xl">
+            <h3 id="modal-fin-title" class="text-xl font-bold text-gray-800 mb-4">Thêm / Sửa Giao Dịch</h3>
+            <form onsubmit="saveFinance(event)" class="space-y-4">
+                <input type="hidden" id="fin-index" value="-1">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Loại giao dịch</label>
+                        <select id="fin-type" class="w-full border rounded-lg px-3 py-2 text-sm">
+                            <option value="thu">Khoản Thu (+)</option>
+                            <option value="chi">Khoản Chi (-)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Ngày giao dịch</label>
+                        <input type="text" id="fin-date" required class="w-full border rounded-lg px-3 py-2 text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Nội dung chi tiết</label>
+                    <input type="text" id="fin-desc" required class="w-full border rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Số tiền (VNĐ)</label>
+                        <input type="number" id="fin-amount" required min="1000" class="w-full border rounded-lg px-3 py-2 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Người nộp / Nhận</label>
+                        <input type="text" id="fin-person" required class="w-full border rounded-lg px-3 py-2 text-sm">
+                    </div>
+                </div>
+                <div class="flex justify-end space-x-2 pt-2 border-t">
+                    <button type="button" onclick="closeFinanceModal()" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-semibold">Hủy</button>
+                    <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-semibold">Lưu Giao Dịch</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC & LOCALSTORAGE -->
+    <script>
+        // Khởi tạo dữ liệu mặc định hoặc lấy từ localStorage
+        let generalInfo = JSON.parse(localStorage.getItem('xom_quyet_thang_general')) || {
+            name: "Xóm Quyết Thắng",
+            date: "01/07/2026",
+            population: 1376,
+            households: 337,
+            desc: "Thành lập kết hợp từ 3 xóm cũ: Xóm Đại Hà, Xóm Lũng 1 và Xóm Lũng 2."
+        };
+
+        let householdData = JSON.parse(localStorage.getItem('xom_quyet_thang_hk')) || [
+            { stt: 1, chuHo: "Nguyễn Minh Sang", nhanKhau: 4, xomCu: "Xóm Lũng 1", sdt: "0973.853.697" },
+            { stt: 2, chuHo: "Trần Văn Hùng", nhanKhau: 5, xomCu: "Xóm Lũng 1", sdt: "0912.xxx.xxx" },
+            { stt: 3, chuHo: "Lê Văn Nam", nhanKhau: 3, xomCu: "Xóm Lũng 2", sdt: "0988.xxx.xxx" },
+            { stt: 4, chuHo: "Hoàng Văn Tuấn", nhanKhau: 4, xomCu: "Xóm Đại Hà", sdt: "0979.xxx.xxx" },
+            { stt: 5, chuHo: "Phạm Thị Hoa", nhanKhau: 2, xomCu: "Xóm Đại Hà", sdt: "0356.xxx.xxx" }
+        ];
+
+        let newsData = JSON.parse(localStorage.getItem('xom_quyet_thang_news')) || [
+            { title: "Xóm Quyết Thắng chính thức đi vào hoạt động từ 01/07/2026", date: "01/07/2026", desc: "Công bố quyết định thành lập xóm trên cơ sở sáp nhập Đại Hà, Lũng 1 và Lũng 2 với 337 hộ dân.", img: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=600&q=80" },
+            { title: "Hội nghị triển khai kế hoạch xây dựng Nông thôn mới kiểu mẫu", date: "25/06/2026", desc: "Ban quản lý xóm họp bàn kế hoạch bê tông hóa giao thông nội đồng và chỉnh trang cảnh quan môi trường.", img: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80" }
+        ];
+
+        let financeData = JSON.parse(localStorage.getItem('xom_quyet_thang_finance')) || [
+            { date: "01/07/2026", desc: "Nhận kinh phí hỗ trợ thành lập xóm mới từ UBND xã Phú Lạc", type: "thu", amount: 15000000, person: "UBND Xã Phú Lạc" },
+            { date: "05/07/2026", desc: "Ủng hộ quỹ xây dựng biển hiệu nhà văn hóa xóm", type: "thu", amount: 8500000, person: "Nhân dân xóm" },
+            { date: "10/07/2026", desc: "Chi mua sắm vật tư trang trí khánh tiết lễ công bố xóm", type: "chi", amount: 4200000, person: "Ban văn hóa xóm" }
+        ];
+
+        // RENDER TOÀN BỘ GIAO DIỆN
+        function renderAll() {
+            // Thông tin chung
+            document.querySelectorAll('.display-xom-name').forEach(el => el.innerText = generalInfo.name);
+            document.querySelectorAll('.display-xom-date').forEach(el => el.innerText = generalInfo.date);
+            document.querySelectorAll('.display-xom-pop').forEach(el => el.innerText = generalInfo.population);
+            document.querySelectorAll('.display-xom-hh').forEach(el => el.innerText = generalInfo.households);
+            document.querySelectorAll('.display-xom-desc').forEach(el => el.innerText = generalInfo.desc);
+
+            if(document.getElementById('gen-name')) {
+                document.getElementById('gen-name').value = generalInfo.name;
+                document.getElementById('gen-date').value = generalInfo.date;
+                document.getElementById('gen-population').value = generalInfo.population;
+                document.getElementById('gen-households').value = generalInfo.households;
+                document.getElementById('gen-desc').value = generalInfo.desc;
+            }
+
+            renderNews();
+            renderHouseholds();
+            renderFinance();
+        }
+
+        // --- RENDER TIN TỨC ---
+        function renderNews() {
+            const pubContainer = document.getElementById('news-container');
+            if(pubContainer) {
+                pubContainer.innerHTML = newsData.map(item => `
+                    <div class="bg-white rounded-xl shadow overflow-hidden border border-gray-100 flex flex-col">
+                        <img src="${item.img}" alt="News" class="h-48 w-full object-cover">
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-primary font-semibold"><i class="fa-regular fa-calendar mr-1"></i> ${item.date}</span>
+                                <h4 class="font-bold text-gray-800 text-base mt-2 mb-2">${item.title}</h4>
+                                <p class="text-sm text-gray-600">${item.desc}</p>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            const adminContainer = document.getElementById('admin-news-container');
+            if(adminContainer) {
+                adminContainer.innerHTML = newsData.map((item, idx) => `
+                    <div class="bg-gray-50 rounded-lg p-4 border flex flex-col justify-between">
+                        <div>
+                            <img src="${item.img}" class="h-32 w-full object-cover rounded mb-2">
+                            <h5 class="font-bold text-sm text-gray-800">${item.title}</h5>
+                        </div>
+                        <div class="mt-4 flex justify-end space-x-2">
+                            <button onclick="openEditNewsModal(${idx})" class="bg-blue-100 text-blue-700 px-2.5 py-1 rounded text-xs font-semibold">Sửa</button>
+                            <button onclick="deleteNews(${idx})" class="bg-red-100 text-red-700 px-2.5 py-1 rounded text-xs font-semibold">Xóa</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // --- RENDER HỘ KHẨU ---
+        function renderHouseholds() {
+            const pubTbody = document.getElementById('household-table');
+            if(pubTbody) {
+                pubTbody.innerHTML = householdData.map((item, idx) => `
+                    <tr class="hover:bg-gray-50">
+                        <td class="p-3 font-medium">${idx + 1}</td>
+                        <td class="p-3 font-bold text-gray-800">${item.chuHo}</td>
+                        <td class="p-3">${item.nhanKhau} nhân khẩu</td>
+                        <td class="p-3"><span class="bg-emerald-50 text-primary px-2 py-0.5 rounded text-xs font-semibold">${item.xomCu}</span></td>
+                        <td class="p-3">${item.sdt}</td>
+                        <td class="p-3 text-center"><span class="text-xs text-gray-500 italic">Đã xác thực</span></td>
+                    </tr>
+                `).join('');
+            }
+
+            const adminTbody = document.getElementById('admin-household-table');
+            if(adminTbody) {
+                adminTbody.innerHTML = householdData.map((item, idx) => `
+                    <tr class="hover:bg-gray-50">
+                        <td class="p-3 font-medium">${idx + 1}</td>
+                        <td class="p-3 font-bold text-gray-800">${item.chuHo}</td>
+                        <td class="p-3">${item.nhanKhau} nhân khẩu</td>
+                        <td class="p-3"><span class="bg-emerald-50 text-primary px-2 py-0.5 rounded text-xs font-semibold">${item.xomCu}</span></td>
+                        <td class="p-3">${item.sdt}</td>
+                        <td class="p-3 text-center space-x-2">
+                            <button onclick="openEditHouseholdModal(${idx})" class="bg-blue-100 text-blue-700 px-2.5 py-1 rounded text-xs font-semibold">Sửa</button>
+                            <button onclick="deleteHousehold(${idx})" class="bg-red-100 text-red-700 px-2.5 py-1 rounded text-xs font-semibold">Xóa</button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        // --- RENDER THU CHI ---
+        function renderFinance() {
+            let totalIncome = 0;
+            let totalExpense = 0;
+
+            const mapHTML = financeData.map((item, idx) => {
+                if (item.type === 'thu') totalIncome += Number(item.amount);
+                else totalExpense += Number(item.amount);
+
+                const badge = item.type === 'thu' 
+                    ? '<span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded text-xs font-semibold">Thu (+)</span>' 
+                    : '<span class="bg-rose-100 text-rose-800 px-2 py-0.5 rounded text-xs font-semibold">Chi (-)</span>';
+                const amtClass = item.type === 'thu' ? 'text-emerald-600 font-bold' : 'text-rose-600 font-bold';
+
+                return `
+                    <tr class="hover:bg-gray-50">
+                        <td class="p-3 text-xs text-gray-600">${item.date}</td>
+                        <td class="p-3 font-medium text-gray-800">${item.desc}</td>
+                        <td class="p-3">${badge}</td>
+                        <td class="p-3 ${amtClass}">${Number(item.amount).toLocaleString('vi-VN')} VNĐ</td>
+                        <td class="p-3 text-gray-700">${item.person}</td>
+                        ${document.getElementById('admin-finance-table') ? `
+                        <td class="p-3 text-center space-x-2">
+                            <button onclick="openEditFinanceModal(${idx})" class="bg-blue-100 text-blue-700 px-2.5 py-1 rounded text-xs font-semibold">Sửa</button>
+                            <button onclick="deleteFinance(${idx})" class="bg-red-100 text-red-700 px-2.5 py-1 rounded text-xs font-semibold">Xóa</button>
+                        </td>` : ''}
+                    </tr>
+                `;
+            }).join('');
+
+            const balance = totalIncome - totalExpense;
+
+            // Hiển thị trang chủ
+            if(document.getElementById('pub-finance-table')) {
+                document.getElementById('pub-finance-table').innerHTML = mapHTML;
+                document.getElementById('pub-total-income').innerText = totalIncome.toLocaleString('vi-VN') + " VNĐ";
+                document.getElementById('pub-total-expense').innerText = totalExpense.toLocaleString('vi-VN') + " VNĐ";
+                document.getElementById('pub-balance').innerText = balance.toLocaleString('vi-VN') + " VNĐ";
+            }
+
+            // Hiển thị trang quản trị
+            if(document.getElementById('admin-finance-table')) {
+                document.getElementById('admin-finance-table').innerHTML = mapHTML;
+            }
+        }
+
+        // --- ADMIN LOGIN CONTROL ---
+        function openAdminLoginModal() { document.getElementById('modal-admin-login').classList.remove('hidden'); }
+        function closeAdminLoginModal() { document.getElementById('modal-admin-login').classList.add('hidden'); }
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const pass = document.getElementById('admin-pass').value;
+            if (pass === '123456') {
+                closeAdminLoginModal();
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+            } else {
+                alert("Mật khẩu không đúng! (Mặc định: 123456)");
+            }
+        }
+        function logoutAdmin() { document.getElementById('admin-dashboard').classList.add('hidden'); }
+
+        // --- LƯU THÔNG TIN CHUNG ---
+        function saveGeneralInfo(e) {
+            e.preventDefault();
+            generalInfo.name = document.getElementById('gen-name').value;
+            generalInfo.date = document.getElementById('gen-date').value;
+            generalInfo.population = parseInt(document.getElementById('gen-population').value);
+            generalInfo.households = parseInt(document.getElementById('gen-households').value);
+            generalInfo.desc = document.getElementById('gen-desc').value;
+
+            localStorage.setItem('xom_quyet_thang_general', JSON.stringify(generalInfo));
+            renderAll();
+            alert("Đã lưu thông tin chung thành công!");
+        }
+
+        // --- XỬ LÝ HỘ KHẨU ---
+        function openAddHouseholdModal() {
+            document.getElementById('modal-hk-title').innerText = "Thêm Hộ Khẩu Mới";
+            document.getElementById('hk-index').value = "-1";
+            document.getElementById('hk-chuho').value = "";
+            document.getElementById('hk-nhankhau').value = "";
+            document.getElementById('hk-sdt').value = "";
+            document.getElementById('modal-ho-khau').classList.remove('hidden');
+        }
+        function openEditHouseholdModal(idx) {
+            const item = householdData[idx];
+            document.getElementById('modal-hk-title').innerText = "Chỉnh Sửa Hộ Khẩu";
+            document.getElementById('hk-index').value = idx;
+            document.getElementById('hk-chuho').value = item.chuHo;
+            document.getElementById('hk-nhankhau').value = item.nhanKhau;
+            document.getElementById('hk-xomcu').value = item.xomCu;
+            document.getElementById('hk-sdt').value = item.sdt;
+            document.getElementById('modal-ho-khau').classList.remove('hidden');
+        }
+        function closeHKModal() { document.getElementById('modal-ho-khau').classList.add('hidden'); }
+        function saveHousehold(e) {
+            e.preventDefault();
+            const idx = parseInt(document.getElementById('hk-index').value);
+            const obj = {
+                chuHo: document.getElementById('hk-chuho').value,
+                nhanKhau: parseInt(document.getElementById('hk-nhankhau').value),
+                xomCu: document.getElementById('hk-xomcu').value,
+                sdt: document.getElementById('hk-sdt').value
+            };
+            if(idx === -1) householdData.unshift(obj);
+            else householdData[idx] = obj;
+
+            localStorage.setItem('xom_quyet_thang_hk', JSON.stringify(householdData));
+            renderHouseholds();
+            closeHKModal();
+            alert("Đã lưu thông tin hộ khẩu!");
+        }
+        function deleteHousehold(idx) {
+            if(confirm("Xóa hộ khẩu này?")) {
+                householdData.splice(idx, 1);
+                localStorage.setItem('xom_quyet_thang_hk', JSON.stringify(householdData));
+                renderHouseholds();
+            }
+        }
+
+        // --- XỬ LÝ TIN TỨC & UPLOAD ẢNH ---
+        function openAddNewsModal() {
+            document.getElementById('modal-tt-title').innerText = "Đăng Tin Tức Mới";
+            document.getElementById('tt-index').value = "-1";
+            document.getElementById('tt-title').value = "";
+            document.getElementById('tt-desc').value = "";
+            document.getElementById('modal-tin-tuc').classList.remove('hidden');
+        }
+        function openEditNewsModal(idx) {
+            const item = newsData[idx];
+            document.getElementById('modal-tt-title').innerText = "Chỉnh Sửa Bài Viết";
+            document.getElementById('tt-index').value = idx;
+            document.getElementById('tt-title').value = item.title;
+            document.getElementById('tt-desc').value = item.desc;
+            document.getElementById('modal-tin-tuc').classList.remove('hidden');
+        }
+        function closeNewsModal() { document.getElementById('modal-tin-tuc').classList.add('hidden'); }
+        function saveNews(e) {
+            e.preventDefault();
+            const idx = parseInt(document.getElementById('tt-index').value);
+            const title = document.getElementById('tt-title').value;
+            const desc = document.getElementById('tt-desc').value;
+            const fileInput = document.getElementById('tt-image-file');
+            const today = new Date().toLocaleDateString('vi-VN');
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    pushNewsObj(idx, title, today, desc, e.target.result);
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                let defaultImg = (idx !== -1) ? newsData[idx].img : "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80";
+                pushNewsObj(idx, title, today, desc, defaultImg);
+            }
+        }
+        function pushNewsObj(idx, title, date, desc, img) {
+            const obj = { title, date, desc, img };
+            if(idx === -1) newsData.unshift(obj);
+            else newsData[idx] = obj;
+
+            localStorage.setItem('xom_quyet_thang_news', JSON.stringify(newsData));
+            renderNews();
+            closeNewsModal();
+            alert("Đã lưu bài viết thành công!");
+        }
+        function deleteNews(idx) {
+            if(confirm("Xóa bài viết này?")) {
+                newsData.splice(idx, 1);
+                localStorage.setItem('xom_quyet_thang_news', JSON.stringify(newsData));
+                renderNews();
+            }
+        }
+
+        // --- XỬ LÝ THU CHI ---
+        function openAddFinanceModal() {
+            document.getElementById('modal-fin-title').innerText = "Thêm Giao Dịch Mới";
+            document.getElementById('fin-index').value = "-1";
+            document.getElementById('fin-desc').value = "";
+            document.getElementById('fin-amount').value = "";
+            document.getElementById('fin-person').value = "";
+            document.getElementById('fin-date').value = new Date().toLocaleDateString('vi-VN');
+            document.getElementById('modal-finance').classList.remove('hidden');
+        }
+        function openEditFinanceModal(idx) {
+            const item = financeData[idx];
+            document.getElementById('modal-fin-title').innerText = "Chỉnh Sửa Giao Dịch";
+            document.getElementById('fin-index').value = idx;
+            document.getElementById('fin-type').value = item.type;
+            document.getElementById('fin-date').value = item.date;
+            document.getElementById('fin-desc').value = item.desc;
+            document.getElementById('fin-amount').value = item.amount;
+            document.getElementById('fin-person').value = item.person;
+            document.getElementById('modal-finance').classList.remove('hidden');
+        }
+        function closeFinanceModal() { document.getElementById('modal-finance').classList.add('hidden'); }
+        function saveFinance(e) {
+            e.preventDefault();
+            const idx = parseInt(document.getElementById('fin-index').value);
+            const obj = {
+                type: document.getElementById('fin-type').value,
+                date: document.getElementById('fin-date').value,
+                desc: document.getElementById('fin-desc').value,
+                amount: parseFloat(document.getElementById('fin-amount').value),
+                person: document.getElementById('fin-person').value
+            };
+            if(idx === -1) financeData.unshift(obj);
+            else financeData[idx] = obj;
+
+            localStorage.setItem('xom_quyet_thang_finance', JSON.stringify(financeData));
+            renderFinance();
+            closeFinanceModal();
+            alert("Đã lưu giao dịch thu chi!");
+        }
+        function deleteFinance(idx) {
+            if(confirm("Xóa giao dịch này?")) {
+                financeData.splice(idx, 1);
+                localStorage.setItem('xom_quyet_thang_finance', JSON.stringify(financeData));
+                renderFinance();
+            }
+        }
+
+        // Chạy khởi tạo khi tải trang
+        renderAll();
+    </script>
+</body>
+</html>
